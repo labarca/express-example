@@ -1,9 +1,9 @@
 FROM node:latest
 RUN mkdir /src
-RUN npm install nodemon -g
 WORKDIR /src
 ADD package.json /src/package.json
 RUN npm install
-ADD nodemon.json /src/nodemon.json
+COPY . .
 EXPOSE 3000
-CMD nodemon app.js
+RUN npm install nodemon -g
+CMD [ "nodemon", "./bin/www" ]
