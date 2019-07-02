@@ -1,9 +1,9 @@
 let mongoose = require("mongoose");
-let User = require('./userModel');
+let User = require('../userModel');
 
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('./app');
+let server = require('../app');
 let should = chai.should();
 
 
@@ -23,7 +23,7 @@ describe('Users', () => {
                   res.should.have.status(200);
                   res.body.should.be.a('object');
                   res.body.should.have.property('status').eql('success');
-                  res.body.user.length.should.be.eql(0);
+                  res.body.data.length.should.be.eql(0);
               done();
             });
       });
@@ -60,8 +60,8 @@ describe('Users', () => {
                   res.should.have.status(200);
                   res.body.should.be.a('object');
                   res.body.should.have.property('message').eql('Nuevo Usuario Creado');
-                  res.body.user.should.have.property('name');
-                  res.body.user.should.have.property('email');
+                  res.body.data.should.have.property('name');
+                  res.body.data.should.have.property('email');
                   
               done();
             });

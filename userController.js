@@ -22,11 +22,13 @@ exports.new = function (req, res) {
     user.email = req.body.email;
 
     user.save(function (err) {
-        // if (err)
-        //     res.json(err);
-        res.json({
-            message: 'Nuevo Usuario Creado',
-            data: user
-        });
+        if (err){
+            res.json(err);
+        }else{
+            res.json({
+                message: 'Nuevo Usuario Creado',
+                data: user
+            });
+        }
     });
 };
