@@ -9,5 +9,5 @@ acceder desde el puerto 8080
 - post: parametros name, email ambos string
 
 ## Tests
-- docker exec -it <Container-ID> /bin/bash
+- docker exec -it [Container-ID] /bin/bash
 - npm test
