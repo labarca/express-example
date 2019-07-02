@@ -1,7 +1,7 @@
 FROM node:latest
 RUN mkdir /src
 WORKDIR /src
-ADD package.json /src/package.json
+COPY package.json package.json
 RUN npm install
 COPY . .
 EXPOSE 3000
